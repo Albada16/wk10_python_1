@@ -1,1 +1,1 @@
-web: gunicorn -k uvicorn.workers.UvicornWorker --bind "127.0.0.1:8080" --log-level debug main:app
+web: gunicorn main:app --preload

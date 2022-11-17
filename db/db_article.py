@@ -2,9 +2,9 @@ from fastapi import HTTPException, status
 from router.schemas import ArticleRequestSchema
 from sqlalchemy import func
 from sqlalchemy.orm.session import Session
+from db.models import DbArticle
 from .articles_feed import article
 
-from db.models import DbArticle
 
 
 def db_feed(db: Session):

@@ -9,12 +9,12 @@ from db.models import DbArticle
 
 def db_feed(db: Session):
     new_article_list = [DbArticle(
-        title=article["title"],
-        author=article["author"],
-        description=article["description"],
-        description_long=article["description_long"],
-        image=article["image"]
-    ) for article in article]
+        title=articles["title"],
+        author=articles["author"],
+        description=articles["description"],
+        description_long=articles["description_long"],
+        image=articles["image"]
+    ) for articles in article]
     db.query(DbArticle).delete()
     db.commit()
     db.add_all(new_article_list)
@@ -41,16 +41,16 @@ def get_all(db: Session) -> list[DbArticle]:
 
 
 def get_article_by_id(article_id: int, db: Session) -> DbArticle:
-    article = db.query(DbArticle).filter(DbArticle.id == article_id).first()
-    if not article:
+    articles = db.query(DbArticle).filter(DbArticle.id == article_id).first()
+    if not articles:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f'Article with id = {article_id} not found')
-    return article
+    return articles
 
 
 def get_article_by_category(category: str, db: Session) -> list[DbArticle]:
-    article = db.query(DbArticle).filter(func.upper(DbArticle.category) == category.upper()).all()
-    if not article:
+    articles = db.query(DbArticle).filter(func.upper(DbArticle.category) == category.upper()).all()
+    if not articles:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f'Article with category = {category} not found')
-    return article
+    return articles

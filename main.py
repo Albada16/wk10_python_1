@@ -16,7 +16,7 @@ app.include_router(article.router)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    uvicorn.run("app:app", port= 5000, reload=True)
+    uvicorn.run("main:app", port= 5000, reload=True)
 
 
 origins = [

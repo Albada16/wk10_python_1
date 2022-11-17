@@ -1,6 +1,5 @@
 from fastapi import HTTPException, status
 from router.schemas import ArticleRequestSchema
-from sqlalchemy import func
 from sqlalchemy.orm.session import Session
 from db.models import DbArticle
 from .articles_feed import article
@@ -20,7 +19,7 @@ def db_feed(db: Session):
     return db.query(DbArticle).all()
 
 
-def create(db: Session, request: ArticleRequestSchema) -> DbArticle:
+def create(db: Session, request: ArticleRequestSchema):
     new_article = DbArticle(
         title=request.title,
         author=request.author,
@@ -38,17 +37,17 @@ def get_all(db: Session):
     return db.query(DbArticle).all()
 
 
-def get_article_by_id(article_id: int, db: Session) -> DbArticle:
+def get_article_by_id(article_id: int, db: Session):
     articles = db.query(DbArticle).filter(DbArticle.id == article_id).first()
-    if not articles:
+    if not article:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f'Article with id = {id} not found')
-    return articles
+    return article
 
 
-# def get_article_by_category(category: str, db: Session) -> list[DbArticle]:
-#     articles = db.query(DbArticle).filter(func.upper(DbArticle.category) == category.upper()).all()
-#     if not articles:
-#         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-#                             detail=f'Article with category = {category} not found')
-#     return articles
+def get_article_by_category(title: str, db: Session):
+    article = db.query(DbArticle).filter(DbArticle.title == title ).all()
+    if not article:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f'Article with title = {id} not found')
+    return article

@@ -1,5 +1,5 @@
 from fastapi import HTTPException, status
-from router.schemas import ArticleResponseSchema, ArticleRequestSchema
+from router.schemas import ArticleRequestSchema
 from sqlalchemy import func
 from sqlalchemy.orm.session import Session
 from .articles_feed import article
@@ -36,8 +36,8 @@ def create(db: Session, request: ArticleRequestSchema) -> DbArticle:
     return new_article
 
 
-# def get_all(db: Session) -> list[DbArticle]:
-#     return db.query(DbArticle).all()
+def get_all(db: Session) -> list[DbArticle]:
+    return db.query(DbArticle).all()
 
 
 def get_article_by_id(article_id: int, db: Session) -> DbArticle:

@@ -11,9 +11,9 @@ router = APIRouter(
 )
 
 
-@router.post('', response_model=ArticleRequestSchema)
+@router.post('', response_model=ArticleResponseSchema)
 def create(request: ArticleRequestSchema, db: Session = Depends(get_db)):
-    return db_article.create(db=db, request=request)
+    return db_article.create(db, request)
 
 
 @router.get('/feed', response_model=List[ArticleResponseSchema])
@@ -28,4 +28,8 @@ def get_all_articles(db: Session = Depends(get_db)):
 
 @router.get("/id/{article_id}", response_model=ArticleResponseSchema)
 def get_article_by_id(article_id: int, db: Session = Depends(get_db)):
-    return db_article.get_article_by_id(article_id=article_id, db=db)
+    return db_article.get_article_by_id(article_id, db)
+
+@router.get("/{title}", response_model=List[ArticleResponseSchema])
+def get_article_by_title(title: str, db: Session = Depends(get_db)):
+    return db_article.get_article_by_title(title, db)

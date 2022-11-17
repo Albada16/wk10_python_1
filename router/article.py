@@ -26,6 +26,6 @@ def get_all_articles(db: Session = Depends(get_db)):
     return db_article.get_all(db)
 
 
-@router.get("/id/{a_id}", response_model=List[ArticleResponseSchema])
-def get_article_by_category(a_id: int, db: Session = Depends(get_db)):
-    return db_article.get_article_by_id(a_id=a_id, db=db)
+@router.get("/{_id}", response_model=List[ArticleResponseSchema])
+def get_article_by_category(id: int, db: Session = Depends(get_db)):
+    return db_article.get_article_by_id(id=id, db=db)

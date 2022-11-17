@@ -43,13 +43,13 @@ def get_article_by_id(article_id: int, db: Session) -> DbArticle:
     articles = db.query(DbArticle).filter(DbArticle.id == article_id).first()
     if not articles:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f'Article with id = {article_id} not found')
+                            detail=f'Article with id = {id} not found')
     return articles
 
 
-def get_article_by_category(category: str, db: Session) -> list[DbArticle]:
-    articles = db.query(DbArticle).filter(func.upper(DbArticle.category) == category.upper()).all()
-    if not articles:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f'Article with category = {category} not found')
-    return articles
+# def get_article_by_category(category: str, db: Session) -> list[DbArticle]:
+#     articles = db.query(DbArticle).filter(func.upper(DbArticle.category) == category.upper()).all()
+#     if not articles:
+#         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+#                             detail=f'Article with category = {category} not found')
+#     return articles

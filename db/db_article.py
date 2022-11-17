@@ -4,7 +4,7 @@ from sqlalchemy import func
 from sqlalchemy.orm.session import Session
 from db.models import DbArticle
 from .articles_feed import article
-
+from typing import List
 
 def db_feed(db: Session):
     new_article_list = [DbArticle(
@@ -35,11 +35,9 @@ def create(db: Session, request: ArticleRequestSchema) -> DbArticle:
     return new_article
 
 
-# def get_all(db: Session) -> list[DbArticle]:
-#     return db.query(DbArticle).all()
-
 def get_all(db: Session) -> list[DbArticle]:
     return db.query(DbArticle).all()
+
 
 def get_article_by_id(article_id: int, db: Session) -> DbArticle:
     articles = db.query(DbArticle).filter(DbArticle.id == article_id).first()

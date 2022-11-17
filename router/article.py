@@ -21,13 +21,10 @@ def feed_initial_articles(db: Session = Depends(get_db)):
     return db_article.db_feed(db)
 
 
-# @router.get('/all', response_model=List[ArticleResponseSchema])
-# def get_all_articles(db: Session = Depends(get_db)):
-#     return db_article.get_all(db)
-
 @router.get('/all', response_model=List[ArticleResponseSchema])
-def get_all_article(db: Session = Depends(get_db)):
+def get_all_articles(db: Session = Depends(get_db)):
     return db_article.get_all(db)
+
 
 @router.get("/id/{article_id}", response_model=ArticleResponseSchema)
 def get_article_by_id(article_id: int, db: Session = Depends(get_db)):

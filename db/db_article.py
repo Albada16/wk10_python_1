@@ -28,8 +28,7 @@ def create(db: Session, request: ArticleRequestSchema) -> DbArticle:
         author=request.author,
         description=request.description,
         description_long=request.description_long,
-        image=request.image,
-        owner_id=request.owner_id
+        image=request.image
     )
     db.add(new_article)
     db.commit()

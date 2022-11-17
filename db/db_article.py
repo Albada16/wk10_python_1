@@ -35,7 +35,7 @@ def create(db: Session, request: ArticleRequestSchema) -> DbArticle:
     return new_article
 
 
-def get_all(db: Session) -> list(DbArticle):
+def get_all(db: Session) -> list[DbArticle]:
     return db.query(DbArticle).all()
 
 
@@ -47,7 +47,7 @@ def get_article_by_id(article_id: int, db: Session) -> DbArticle:
     return articles
 
 
-def get_article_by_category(category: str, db: Session) -> list(DbArticle):
+def get_article_by_category(category: str, db: Session) -> list[DbArticle]:
     articles = db.query(DbArticle).filter(func.upper(DbArticle.category) == category.upper()).all()
     if not articles:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,

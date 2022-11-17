@@ -38,6 +38,8 @@ def create(db: Session, request: ArticleRequestSchema) -> DbArticle:
 # def get_all(db: Session) -> list[DbArticle]:
 #     return db.query(DbArticle).all()
 
+def get_all(db: Session) -> list[DbArticle]:
+    return db.query(DbArticle).all()
 
 def get_article_by_id(article_id: int, db: Session) -> DbArticle:
     articles = db.query(DbArticle).filter(DbArticle.id == article_id).first()

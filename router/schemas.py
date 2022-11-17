@@ -1,4 +1,4 @@
-from pydantic import BaseModel, validator, EmailStr
+from pydantic import BaseModel
 
 
 class ArticleRequestSchema(BaseModel):

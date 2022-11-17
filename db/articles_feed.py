@@ -1,30 +1,30 @@
-article = [
+articles = [
     {
-        "title": "Article 1",
+        "title": "Article1",
         "author": "Joe",
-        "description": "Article 1 ",
-        "description_long": "Article 1",
-        "image": "/images/textile1.png"
+        "description": "Article1 ",
+        "description_long": "Article1",
+        "image": "121"
     },
     {
-        "title": "Article 2",
+        "title": "Article2",
         "author": "Alex",
-        "description": "Article 2 ",
-        "description_long": "Article 2",
-        "image": "/images/textile2.png"
+        "description": "Article2 ",
+        "description_long": "Article2",
+        "image": "122"
     },
     {
-        "title": "Article 3",
+        "title": "Article3",
         "author": "Nick",
-        "description": "Article 3 ",
-        "description_long": "Article 3",
-        "image": "/images/textile3.png"
+        "description": "Article3 ",
+        "description_long": "Article3",
+        "image": "123"
     },
     {
-        "title": "Article 4",
+        "title": "Article4",
         "author": "claire",
-        "description": "Article 4 ",
-        "description_long": "Article 4",
-        "image": "/images/textile4.png"
+        "description": "Article4 ",
+        "description_long": "Article4",
+        "image": "124"
     }
 ]

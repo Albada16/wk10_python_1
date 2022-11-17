@@ -34,7 +34,7 @@ def create(db: Session, request: ArticleRequestSchema) -> DbArticle:
     return new_article
 
 
-def get_all(db: Session) -> list[DbArticle]:
+def get_all(db: Session):
     return db.query(DbArticle).all()
 
 

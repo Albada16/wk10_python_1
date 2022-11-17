@@ -9,6 +9,7 @@ uvicorn = "*"
 sqlalchemy = "*"
 pydantic = "*"
 email-validator = "*"
+gunicorn = "*"
 
 [dev-packages]
 

@@ -7,7 +7,7 @@ class DbArticle(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
     author = Column(String)
-    description = Column(String)
+    description = Column(String(100))
     description_long = Column(String)
     image = Column(String)
 

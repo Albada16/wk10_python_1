@@ -6,7 +6,7 @@ from db import db_article
 from typing import List
 
 router = APIRouter(
-    prefix='/api/v1/articles',
+    prefix='/api/articles',
     tags=['articles']
 )
 

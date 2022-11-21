@@ -37,17 +37,17 @@ def get_all(db: Session):
     return db.query(DbArticle).all()
 
 
-def get_article_by_id(title: str, db: Session):
-    article = db.query(DbArticle).filter(DbArticle.title == title).first()
+def get_article_by_id(article_id: id, db: Session):
+    article = db.query(DbArticle).filter(DbArticle.id == article_id).first()
     if not article:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f'Article with id = {id} not found')
     return article
 
 
-def get_article_by_category(title: str, db: Session):
-    article = db.query(DbArticle).filter(DbArticle.title == title).all()
+def get_article_by_title(article_title: str, db: Session):
+    article = db.query(DbArticle).filter(DbArticle.title == article_title).all()
     if not article:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f'Article with title = {id} not found')
+                            detail=f'Article with title = {str} not found')
     return article

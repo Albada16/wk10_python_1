@@ -11,5 +11,16 @@ class DbArticle(Base):
     description_long = Column(String)
     image = Column(String)
 
+class DbUser(Base):
+    __tablename__ = 'User'
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String)
+    avatar = Column(String)
+    email = Column(String)
+class DbLike(Base):
+    __tablename__ = 'like'
+    id = Column(Integer, primary_key=True, index=True)
+    avatar = Column(String)
+    username = Column(String)
 
 
